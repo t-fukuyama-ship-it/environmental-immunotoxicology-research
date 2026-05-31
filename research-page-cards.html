@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>知られざる毒の世界：カビ毒等環境汚染物質と免疫の不思議な関係</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1d2527;
+      --muted: #5b676b;
+      --line: #d8e2e2;
+      --paper: #f7faf9;
+      --white: #ffffff;
+      --teal: #087f7a;
+      --teal-dark: #075f62;
+      --red: #b4453d;
+      --gold: #b98521;
+      --violet: #6b5ca5;
+      --shadow: 0 18px 60px rgba(24, 42, 45, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.75;
+    }
+
+    a { color: var(--teal-dark); text-decoration-thickness: .08em; text-underline-offset: .18em; }
+    a:hover { color: var(--red); }
+
+    .hero {
+      min-height: 88svh;
+      display: grid;
+      grid-template-columns: minmax(24px, 1fr) minmax(0, 1180px) minmax(24px, 1fr);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(105deg, rgba(6, 38, 40, .94) 0%, rgba(9, 62, 65, .88) 42%, rgba(247, 250, 249, .82) 100%),
+        radial-gradient(circle at 78% 26%, rgba(180, 69, 61, .22), transparent 32%),
+        #073a3d;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: rgba(255,255,255,.22);
+    }
+
+    .hero-inner {
+      grid-column: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+      gap: 54px;
+      align-items: center;
+      padding: 88px 0 70px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .kicker {
+      margin: 0 0 16px;
+      color: #8edbd6;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--white);
+      font-size: clamp(36px, 6.4vw, 76px);
+      line-height: 1.08;
+      letter-spacing: 0;
+      max-width: 930px;
+    }
+
+    .lead {
+      margin: 28px 0 0;
+      color: rgba(255,255,255,.86);
+      font-size: clamp(16px, 1.6vw, 20px);
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,.34);
+      color: var(--white);
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .button.primary { background: var(--red); border-color: var(--red); }
+    .button:hover { transform: translateY(-2px); color: var(--white); background: rgba(255,255,255,.12); }
+    .button.primary:hover { background: #9f3934; }
+
+    .figure-wrap {
+      background: rgba(255,255,255,.93);
+      border: 1px solid rgba(255,255,255,.42);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      border-radius: 6px;
+      transform: translateY(8px);
+      animation: riseIn .7s ease .15s both;
+    }
+
+    .figure-title {
+      margin: 0 0 18px;
+      font-weight: 800;
+      color: var(--teal-dark);
+      line-height: 1.45;
+    }
+
+    .schematic { width: 100%; height: auto; display: block; }
+    .schematic text { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; }
+
+    main { background: var(--paper); }
+
+    section {
+      display: grid;
+      grid-template-columns: minmax(24px, 1fr) minmax(0, 1100px) minmax(24px, 1fr);
+    }
+
+    .section-inner { grid-column: 2; padding: 74px 0; }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(240px, .78fr) minmax(0, 1.22fr);
+      gap: 56px;
+      align-items: start;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.4;
+      letter-spacing: 0;
+    }
+
+    p { margin: 0 0 18px; }
+    .muted { color: var(--muted); }
+
+    .band {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+      background: var(--white);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .axes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 8px;
+    }
+
+    .axis {
+      border-top: 3px solid var(--teal);
+      padding-top: 18px;
+    }
+
+    .axis:nth-child(2) { border-color: var(--red); }
+    .axis:nth-child(3) { border-color: var(--gold); }
+
+    .paper-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .bibliography {
+      margin: 28px 0 34px;
+      padding: 0;
+      list-style: none;
+      counter-reset: paper;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .bibliography li {
+      counter-increment: paper;
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      min-height: 228px;
+      padding: 18px;
+      border: 1px solid rgba(22, 60, 64, .12);
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(26, 45, 48, .07);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .bibliography li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(26, 45, 48, .11);
+    }
+
+    .bibliography li::before {
+      content: counter(paper, decimal-leading-zero);
+      color: var(--teal-dark);
+      font-weight: 900;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .bibliography strong {
+      display: block;
+      line-height: 1.55;
+      margin-bottom: 4px;
+    }
+
+    .bibliography span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .theme-don { background: #eef8f7; }
+    .theme-niv { background: #f3f7ec; }
+    .theme-fb2 { background: #fff7e7; }
+    .theme-cit { background: #fff1ec; }
+    .theme-psoriasis { background: #f6f1ff; }
+    .theme-airway { background: #edf6ff; }
+    .theme-ahr { background: #f4f0e8; }
+    .theme-bpa { background: #fff0f4; }
+    .theme-er { background: #eef2ff; }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(28, 65, 68, .12);
+      color: #2e4c50;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .paper {
+      border: 1px solid rgba(22, 60, 64, .13);
+      border-radius: 8px;
+      padding: 24px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .paper:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(20, 45, 48, .1); border-color: #a9c8c7; }
+    .paper-meta { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+    .paper-title { margin: 0 0 10px; font-weight: 800; line-height: 1.45; }
+    .paper p { margin-bottom: 12px; }
+
+    .linkbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .pubmed {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 6px 11px;
+      border: 1px solid #b7d2d1;
+      border-radius: 4px;
+      background: #eef8f7;
+      color: var(--teal-dark);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .pubmed:hover { background: #dff1ef; color: var(--teal-dark); }
+
+    .note {
+      border-left: 4px solid var(--red);
+      background: #fff7f6;
+      padding: 18px 20px;
+      border-radius: 0 6px 6px 0;
+      color: #513331;
+    }
+
+    footer {
+      display: grid;
+      grid-template-columns: minmax(24px, 1fr) minmax(0, 1100px) minmax(24px, 1fr);
+      background: #122427;
+      color: rgba(255,255,255,.76);
+    }
+
+    footer .section-inner { padding: 36px 0; }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(26px); }
+      to { opacity: 1; transform: translateY(8px); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner, .split { grid-template-columns: 1fr; }
+      .hero-inner { gap: 34px; padding-top: 66px; }
+      .figure-wrap { padding: 20px; }
+      .axes { grid-template-columns: 1fr; }
+      .bibliography { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .hero { min-height: auto; }
+      .hero-inner { padding: 56px 0 44px; }
+      .section-inner { padding: 54px 0; }
+      .button { width: 100%; }
+      .paper { padding: 18px; }
+      .bibliography { grid-template-columns: 1fr; }
+      .bibliography li { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="kicker">Environmental Immunotoxicology</p>
+        <h1>知られざる毒の世界：カビ毒等環境汚染物質と免疫の不思議な関係</h1>
+        <p class="lead">カビ毒、内分泌かく乱物質、芳香族炭化水素受容体（AhR）に作用する環境汚染物質などが、アレルギーや炎症の起こり方にどう関わるのかを調べています。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#papers">論文を見る</a>
+          <a class="button" href="#theme">研究テーマ</a>
+        </div>
+      </div>
+
+      <aside class="figure-wrap" aria-label="環境汚染物質と免疫病態の模式図">
+        <p class="figure-title">身近な環境因子が免疫を揺らす流れ</p>
+        <svg class="schematic" viewBox="0 0 620 520" role="img" aria-labelledby="svg-title svg-desc">
+          <title id="svg-title">環境因子が免疫と炎症に関わる流れのイラスト</title>
+          <desc id="svg-desc">食品や空気中の物質が体に入り、免疫細胞を刺激し、皮膚や気道の炎症につながる流れをイラストで示す。</desc>
+          <defs>
+            <marker id="arrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+              <path d="M0,0 L10,4 L0,8 z" fill="#33575a"></path>
+            </marker>
+            <linearGradient id="bodyGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#e8f7f5"></stop>
+              <stop offset="1" stop-color="#ffffff"></stop>
+            </linearGradient>
+          </defs>
+          <rect x="14" y="18" width="592" height="484" rx="22" fill="#f7fbfb" stroke="#cfdede"></rect>
+          <text x="46" y="62" font-size="17" font-weight="800" fill="#075f62">1. 身近な入り口</text>
+          <g transform="translate(48 86)">
+            <rect x="0" y="30" width="116" height="72" rx="10" fill="#fff7ed" stroke="#e0bc74"></rect>
+            <path d="M12 30 C28 8, 86 8, 104 30" fill="#f4d27e" stroke="#d7aa4d"></path>
+            <text x="19" y="73" font-size="14" font-weight="800" fill="#5b3d08">穀類・飼料</text>
+            <circle cx="100" cy="18" r="10" fill="#b4453d"></circle>
+            <circle cx="115" cy="34" r="7" fill="#087f7a"></circle>
+            <text x="5" y="123" font-size="12" fill="#5b676b">カビ毒</text>
+          </g>
+          <g transform="translate(44 238)">
+            <path d="M18 86 L42 18 L66 86 Z" fill="#e6f3f2" stroke="#8abfbb"></path>
+            <rect x="79" y="20" width="52" height="70" rx="8" fill="#f9e8e6" stroke="#dca9a4"></rect>
+            <path d="M88 18 L122 18" stroke="#b4453d" stroke-width="6" stroke-linecap="round"></path>
+            <text x="0" y="115" font-size="12" fill="#5b676b">生活環境の化学物質</text>
+          </g>
+
+          <path d="M184 164 C224 146, 248 142, 284 156" fill="none" stroke="#33575a" stroke-width="3" marker-end="url(#arrow)"></path>
+          <path d="M184 304 C224 310, 250 300, 286 276" fill="none" stroke="#33575a" stroke-width="3" marker-end="url(#arrow)"></path>
+
+          <text x="262" y="62" font-size="17" font-weight="800" fill="#075f62">2. 免疫が反応</text>
+          <g transform="translate(252 100)">
+            <path d="M94 28 C126 52, 130 122, 102 166 C85 193, 47 192, 31 164 C5 119, 13 56, 47 29 C61 18, 80 18, 94 28Z" fill="url(#bodyGrad)" stroke="#8abfbb" stroke-width="2"></path>
+            <circle cx="67" cy="80" r="22" fill="#ffffff" stroke="#087f7a" stroke-width="2"></circle>
+            <path d="M54 80 C62 63, 82 64, 88 81 C77 78, 66 94, 54 80Z" fill="#087f7a" opacity=".78"></path>
+            <circle cx="55" cy="121" r="12" fill="#b4453d" opacity=".9"></circle>
+            <circle cx="88" cy="127" r="10" fill="#b98521" opacity=".9"></circle>
+            <circle cx="73" cy="149" r="8" fill="#6b5ca5" opacity=".85"></circle>
+            <text x="7" y="218" font-size="13" font-weight="800" fill="#1d2527">樹状細胞・T細胞・上皮細胞</text>
+            <text x="19" y="240" font-size="12" fill="#5b676b">炎症を強める信号が変化</text>
+          </g>
+
+          <path d="M404 178 C426 166, 440 160, 463 156" fill="none" stroke="#33575a" stroke-width="3" marker-end="url(#arrow)"></path>
+          <path d="M404 250 C430 278, 444 303, 466 340" fill="none" stroke="#33575a" stroke-width="3" marker-end="url(#arrow)"></path>
+
+          <text x="430" y="62" font-size="17" font-weight="800" fill="#075f62">3. 症状を悪化</text>
+          <g transform="translate(458 92)">
+            <path d="M24 20 C60 2, 103 20, 113 56 C125 99, 91 128, 52 125 C19 123, -1 100, 4 68 C7 47, 9 29, 24 20Z" fill="#f9e8e6" stroke="#d9a39d"></path>
+            <path d="M30 47 C42 36, 57 36, 67 48" fill="none" stroke="#b4453d" stroke-width="4" stroke-linecap="round"></path>
+            <path d="M52 76 C65 64, 86 65, 97 80" fill="none" stroke="#b4453d" stroke-width="4" stroke-linecap="round"></path>
+            <text x="19" y="154" font-size="13" font-weight="800" fill="#1d2527">皮膚炎・かゆみ</text>
+          </g>
+          <g transform="translate(452 292)">
+            <path d="M59 22 C42 43, 28 72, 30 112 C47 110, 58 95, 61 72 Z" fill="#e6f3f2" stroke="#83bbb8" stroke-width="2"></path>
+            <path d="M75 22 C92 43, 106 72, 104 112 C87 110, 76 95, 73 72 Z" fill="#e6f3f2" stroke="#83bbb8" stroke-width="2"></path>
+            <path d="M67 16 L67 118" stroke="#33575a" stroke-width="5" stroke-linecap="round"></path>
+            <circle cx="104" cy="42" r="8" fill="#b4453d"></circle>
+            <circle cx="112" cy="66" r="6" fill="#b98521"></circle>
+            <text x="26" y="154" font-size="13" font-weight="800" fill="#1d2527">喘息・気道炎症</text>
+          </g>
+
+          <g transform="translate(46 444)">
+            <rect width="528" height="34" rx="17" fill="#eef8f7" stroke="#c0dcda"></rect>
+            <text x="22" y="22" font-size="13" font-weight="700" fill="#17494b">研究の視点：少量の曝露でも、免疫のバランスを変えて炎症を強めることがある</text>
+          </g>
+        </svg>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="theme">
+      <div class="section-inner split reveal">
+        <div>
+          <h2>研究テーマ</h2>
+          <div class="pill-row" aria-label="研究キーワード">
+            <span class="pill">カビ毒</span>
+            <span class="pill">免疫毒性</span>
+            <span class="pill">芳香族炭化水素受容体（AhR）</span>
+            <span class="pill">内分泌かく乱物質</span>
+            <span class="pill">アレルギー炎症</span>
+          </div>
+        </div>
+        <div>
+          <p>食品や飼料、生活環境の中には、ふだんは目に見えない微量の毒性物質が含まれることがあります。本研究では、そうした物質が体に入ったとき、免疫の働きや炎症の起こり方にどのような影響を与えるのかを調べています。</p>
+          <p>主な対象は、Fusarium属真菌などに由来するカビ毒、内分泌かく乱物質、芳香族炭化水素受容体（AhR）に作用する環境汚染物質です。これらを、アレルギー性皮膚炎、喘息、乾癬様皮膚炎などのモデルと組み合わせ、病気を悪化させる「隠れた環境要因」として捉え直しています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="section-inner reveal">
+        <div class="split">
+          <h2>調べていること</h2>
+          <div class="axes">
+            <div class="axis">
+              <h3>カビ毒と炎症増悪</h3>
+              <p class="muted">デオキシニバレノール（DON）、ニバレノール（NIV）、フモニシンB2（FB2）、シトリニン（citrinin）などが、皮膚や気道の炎症に与える影響を調べます。</p>
+            </div>
+            <div class="axis">
+              <h3>環境受容体シグナル</h3>
+              <p class="muted">ベンゾ[a]ピレン（BaP）など、芳香族炭化水素受容体（AhR）に作用する物質が、皮膚や免疫細胞を介して炎症を強める仕組みを調べます。</p>
+            </div>
+            <div class="axis">
+              <h3>内分泌・性差関連因子</h3>
+              <p class="muted">ビスフェノールA（BPA）やエストロゲン受容体シグナルが、気道炎症、インターロイキン33（IL-33）、好酸球性炎症に与える影響を調べます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner split reveal">
+        <div>
+          <h2>研究内容</h2>
+        </div>
+        <div>
+          <p>カビ毒は、穀類や飼料に混入することがある自然毒です。大量に摂取したときの急性毒性だけでなく、少量の曝露がアレルギーや炎症を悪化させる可能性も注目されています。私たちは、デオキシニバレノール（DON）、ニバレノール（NIV）、フモニシンB2（FB2）、シトリニン（citrinin）などを対象に、免疫細胞や皮膚・気道の反応を詳しく調べています。</p>
+          <p>研究からは、カビ毒が抗原提示細胞、制御性T細胞、上皮細胞などに働きかけ、アレルギー性皮膚炎、喘息、乾癬様皮膚炎といった病態を強める可能性が見えてきました。つまり、カビ毒は単なる「食中毒の原因」ではなく、免疫のバランスを変える環境要因として考える必要があります。</p>
+          <p>同じ視点は、カビ毒以外の環境汚染物質にも広がります。ビスフェノールA（BPA）は気道アレルギーを悪化させる可能性があり、ベンゾ[a]ピレン（BaP）は芳香族炭化水素受容体（AhR）を介して皮膚のアレルギー性炎症に関わることが示されています。さらに、エストロゲン受容体α/βやインターロイキン33（IL-33）、好酸球性炎症との関係も、気道炎症を理解する上で重要な手がかりになります。</p>
+          <p>これらの研究は、身近な環境中の物質が、病気を直接起こすだけでなく、もともとある炎症やアレルギーを「悪化させるスイッチ」になり得ることを示しています。毒性学、免疫学、アレルギー学をつなぎ、ヒトと動物の健康を守るための新しいリスク評価につなげていきます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="papers" class="band">
+      <div class="section-inner reveal">
+        <div class="split" style="margin-bottom: 28px;">
+          <h2>論文リスト</h2>
+          <p class="muted">PubMedリンク付き。免疫や炎症の変化を扱う論文を中心に、研究の流れが見えるように整理しています。下段には各論文の紹介文も付けています。</p>
+        </div>
+        <ol class="bibliography" aria-label="論文リスト">
+          <li class="theme-niv">
+            <div>
+              <strong>Matsuzaka R. et al. Sub-acute oral exposure to lowest observed adverse effect level of nivalenol exacerbates atopic dermatitis in mice via direct activation of mitogen-activated protein kinase signal in antigen-presenting cells.</strong>
+              <div class="tag-row"><span class="tag">ニバレノール</span><span class="tag">皮膚炎</span></div>
+              <span>Archives of Toxicology, 2024. <a href="https://pubmed.ncbi.nlm.nih.gov/38616237/" target="_blank" rel="noopener">PubMed PMID: 38616237</a></span>
+            </div>
+          </li>
+          <li class="theme-fb2">
+            <div>
+              <strong>Ando M. et al. Chronic oral exposure to low-concentration fumonisin B2 significantly exacerbates the inflammatory responses of allergies in mice via inhibition of IL-10 release by regulatory T cells in gut-associated lymphoid tissue.</strong>
+              <div class="tag-row"><span class="tag">フモニシンB2</span><span class="tag">腸管免疫</span></div>
+              <span>Archives of Toxicology, 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/37589943/" target="_blank" rel="noopener">PubMed PMID: 37589943</a></span>
+            </div>
+          </li>
+          <li class="theme-cit">
+            <div>
+              <strong>Yamaguchi H. et al. Oral exposure to citrinin significantly exacerbates the pathophysiology of a mouse model of imiquimod-induced psoriasis via direct activation of dendritic cell.</strong>
+              <div class="tag-row"><span class="tag">シトリニン</span><span class="tag">樹状細胞</span></div>
+              <span>Journal of Applied Toxicology, 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/36908085/" target="_blank" rel="noopener">PubMed PMID: 36908085</a></span>
+            </div>
+          </li>
+          <li class="theme-psoriasis">
+            <div>
+              <strong>Miyamoto T. et al. Short-Term Oral Administration of 1.5 microg/kg bw/day of Deoxynivalenol Significantly Exacerbates Inflammatory and Itching Symptoms in a Mouse Model of Imiquimod-Induced Psoriasis.</strong>
+              <div class="tag-row"><span class="tag">デオキシニバレノール</span><span class="tag">乾癬様皮膚炎</span></div>
+              <span>Toxins, 2025. <a href="https://pubmed.ncbi.nlm.nih.gov/39998065/" target="_blank" rel="noopener">PubMed PMID: 39998065</a></span>
+            </div>
+          </li>
+          <li class="theme-airway">
+            <div>
+              <strong>Ookawara T. et al. Acute and Subacute Oral Toxicity of Deoxynivalenol Exposure in a Dermatophagoides farinae-Induced Murine Asthma Model.</strong>
+              <div class="tag-row"><span class="tag">デオキシニバレノール</span><span class="tag">喘息</span></div>
+              <span>Toxicological Sciences, 2021. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=10.1093%2Ftoxsci%2Fkfaa168" target="_blank" rel="noopener">PubMed DOI検索</a></span>
+            </div>
+          </li>
+          <li class="theme-don">
+            <div>
+              <strong>Aihara R. et al. Acute and subacute oral administration of mycotoxin deoxynivalenol exacerbates the pro-inflammatory and pro-pruritic responses in a mouse model of allergic dermatitis.</strong>
+              <div class="tag-row"><span class="tag">デオキシニバレノール</span><span class="tag">かゆみ</span></div>
+              <span>Archives of Toxicology, 2020. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=10.1007%2Fs00204-020-02875-3" target="_blank" rel="noopener">PubMed DOI検索</a></span>
+            </div>
+          </li>
+          <li class="theme-ahr">
+            <div>
+              <strong>Tajima H. et al. Direct activation of aryl hydrocarbon receptor by benzo[a]pyrene elicits T-helper 2-driven proinflammatory responses in a mouse model of allergic dermatitis.</strong>
+              <div class="tag-row"><span class="tag">ベンゾ[a]ピレン</span><span class="tag">AhR</span></div>
+              <span>Journal of Applied Toxicology, 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/30748024/" target="_blank" rel="noopener">PubMed PMID: 30748024</a></span>
+            </div>
+          </li>
+          <li class="theme-bpa">
+            <div>
+              <strong>Tajiki-Nishino R. et al. Oral Administration of Bisphenol A Directly Exacerbates Allergic Airway Inflammation but Not Allergic Skin Inflammation in Mice.</strong>
+              <div class="tag-row"><span class="tag">ビスフェノールA</span><span class="tag">気道炎症</span></div>
+              <span>Toxicological Sciences, 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/29846729/" target="_blank" rel="noopener">PubMed PMID: 29846729</a></span>
+            </div>
+          </li>
+          <li class="theme-er">
+            <div>
+              <strong>Watanabe Y. et al. Role of estrogen receptors alpha and beta in the development of allergic airway inflammation in mice: A possible involvement of interleukin 33 and eosinophils.</strong>
+              <div class="tag-row"><span class="tag">エストロゲン受容体</span><span class="tag">好酸球</span></div>
+              <span>Toxicology, 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/30445053/" target="_blank" rel="noopener">PubMed PMID: 30445053</a></span>
+            </div>
+          </li>
+        </ol>
+        <div class="split" style="margin-bottom: 20px;">
+          <h2>論文紹介</h2>
+          <p class="muted">各論文の内容を、Webページにそのまま掲載しやすい短い紹介文にしています。</p>
+        </div>
+        <div class="paper-list">
+          <article class="paper theme-niv">
+            <div class="paper-meta">Matsuzaka et al. / Archives of Toxicology / 2024</div>
+            <div class="tag-row"><span class="tag">ニバレノール</span><span class="tag">抗原提示細胞</span></div>
+            <p class="paper-title">Sub-acute oral exposure to lowest observed adverse effect level of nivalenol exacerbates atopic dermatitis in mice via direct activation of mitogen-activated protein kinase signal in antigen-presenting cells.</p>
+            <p>ニバレノール（NIV）が抗原提示細胞の分裂促進因子活性化タンパク質キナーゼ（MAPK）シグナルを活性化し、腫瘍壊死因子α（TNFα）産生とアトピー性皮膚炎様病態の増悪に関わることを示した研究。</p>
+            <div class="linkbar"><a class="pubmed" href="https://pubmed.ncbi.nlm.nih.gov/38616237/" target="_blank" rel="noopener">PubMed PMID: 38616237</a></div>
+          </article>
+
+          <article class="paper theme-fb2">
+            <div class="paper-meta">Ando et al. / Archives of Toxicology / 2023</div>
+            <div class="tag-row"><span class="tag">フモニシンB2</span><span class="tag">IL-10</span></div>
+            <p class="paper-title">Chronic oral exposure to low-concentration fumonisin B2 significantly exacerbates the inflammatory responses of allergies in mice via inhibition of IL-10 release by regulatory T cells in gut-associated lymphoid tissue.</p>
+            <p>低濃度のフモニシンB2（FB2）曝露が、腸管関連リンパ組織の制御性T細胞におけるインターロイキン10（IL-10）産生を抑え、アレルギー炎症を悪化させる可能性を示した研究。</p>
+            <div class="linkbar"><a class="pubmed" href="https://pubmed.ncbi.nlm.nih.gov/37589943/" target="_blank" rel="noopener">PubMed PMID: 37589943</a></div>
+          </article>
+
+          <article class="paper theme-cit">
+            <div class="paper-meta">Yamaguchi et al. / Journal of Applied Toxicology / 2023</div>
+            <div class="tag-row"><span class="tag">シトリニン</span><span class="tag">乾癬様皮膚炎</span></div>
+            <p class="paper-title">Oral exposure to citrinin significantly exacerbates the pathophysiology of a mouse model of imiquimod-induced psoriasis via direct activation of dendritic cell.</p>
+            <p>シトリニン（citrinin）曝露が樹状細胞を直接活性化し、イミキモド誘導性乾癬様皮膚炎の病態を悪化させることを示した研究。</p>
+            <div class="linkbar"><a class="pubmed" href="https://pubmed.ncbi.nlm.nih.gov/36908085/" target="_blank" rel="noopener">PubMed PMID: 36908085</a></div>
+          </article>
+
+          <article class="paper theme-psoriasis">
+            <div class="paper-meta">Miyamoto et al. / Toxins / 2025</div>
+            <div class="tag-row"><span class="tag">デオキシニバレノール</span><span class="tag">かゆみ</span></div>
+            <p class="paper-title">Short-Term Oral Administration of 1.5 microg/kg bw/day of Deoxynivalenol Significantly Exacerbates Inflammatory and Itching Symptoms in a Mouse Model of Imiquimod-Induced Psoriasis.</p>
+            <p>低濃度のデオキシニバレノール（DON）の短期経口曝露が、乾癬様皮膚炎モデルの皮膚肥厚、経皮水分蒸散量（TEWL）、掻痒、インターロイキン17（IL-17）や腫瘍壊死因子α（TNFα）に関連する反応を強めることを示した研究。</p>
+            <div class="linkbar"><a class="pubmed" href="https://pubmed.ncbi.nlm.nih.gov/39998065/" target="_blank" rel="noopener">PubMed PMID: 39998065</a></div>
+          </article>
+
+          <article class="paper theme-airway">
+            <div class="paper-meta">Ookawara et al. / Toxicological Sciences / 2021</div>
+            <div class="tag-row"><span class="tag">デオキシニバレノール</span><span class="tag">喘息モデル</span></div>
+            <p class="paper-title">Acute and Subacute Oral Toxicity of Deoxynivalenol Exposure in a Dermatophagoides farinae-Induced Murine Asthma Model.</p>
+            <p>デオキシニバレノール（DON）の急性・亜急性経口曝露が、ダニ抗原誘導性喘息モデルにおける気道炎症と局所免疫応答を強めることを示した研究。</p>
+            <div class="linkbar"><a class="pubmed" href="https://pubmed.ncbi.nlm.nih.gov/?term=10.1093%2Ftoxsci%2Fkfaa168" target="_blank" rel="noopener">PubMed DOI検索</a></div>
+          </article>
+
+          <article class="paper theme-don">
+            <div class="paper-meta">Aihara et al. / Archives of Toxicology / 2020</div>
+            <div class="tag-row"><span class="tag">デオキシニバレノール</span><span class="tag">皮膚炎</span></div>
+            <p class="paper-title">Acute and subacute oral administration of mycotoxin deoxynivalenol exacerbates the pro-inflammatory and pro-pruritic responses in a mouse model of allergic dermatitis.</p>
+            <p>デオキシニバレノール（DON）曝露がアレルギー性皮膚炎モデルの炎症応答と掻痒関連反応を強め、樹状細胞やケラチノサイトのサイトカイン応答とも関連することを示した研究。</p>
+            <div class="linkbar"><a class="pubmed" href="https://pubmed.ncbi.nlm.nih.gov/?term=10.1007%2Fs00204-020-02875-3" target="_blank" rel="noopener">PubMed DOI検索</a></div>
+          </article>
+
+          <article class="paper theme-ahr">
+            <div class="paper-meta">Tajima et al. / Journal of Applied Toxicology / 2019</div>
+            <div class="tag-row"><span class="tag">ベンゾ[a]ピレン</span><span class="tag">AhR</span></div>
+            <p class="paper-title">Direct activation of aryl hydrocarbon receptor by benzo[a]pyrene elicits T-helper 2-driven proinflammatory responses in a mouse model of allergic dermatitis.</p>
+            <p>ベンゾ[a]ピレン（BaP）による芳香族炭化水素受容体（AhR）の活性化が、ケラチノサイト、T細胞、樹状細胞の応答を介してTh2型皮膚炎症を悪化させることを示した研究。</p>
+            <div class="linkbar"><a class="pubmed" href="https://pubmed.ncbi.nlm.nih.gov/30748024/" target="_blank" rel="noopener">PubMed PMID: 30748024</a></div>
+          </article>
+
+          <article class="paper theme-bpa">
+            <div class="paper-meta">Tajiki-Nishino et al. / Toxicological Sciences / 2018</div>
+            <div class="tag-row"><span class="tag">ビスフェノールA</span><span class="tag">気道アレルギー</span></div>
+            <p class="paper-title">Oral Administration of Bisphenol A Directly Exacerbates Allergic Airway Inflammation but Not Allergic Skin Inflammation in Mice.</p>
+            <p>ビスフェノールA（BPA）曝露がアレルギー性気道炎症を悪化させる一方、皮膚アレルギーへの影響は異なることを示し、臓器・組織によって免疫毒性の出方が変わる可能性を示した研究。</p>
+            <div class="linkbar"><a class="pubmed" href="https://pubmed.ncbi.nlm.nih.gov/29846729/" target="_blank" rel="noopener">PubMed PMID: 29846729</a></div>
+          </article>
+
+          <article class="paper theme-er">
+            <div class="paper-meta">Watanabe et al. / Toxicology / 2019</div>
+            <div class="tag-row"><span class="tag">エストロゲン受容体</span><span class="tag">IL-33</span></div>
+            <p class="paper-title">Role of estrogen receptors alpha and beta in the development of allergic airway inflammation in mice: A possible involvement of interleukin 33 and eosinophils.</p>
+            <p>エストロゲン受容体α（ERα）およびエストロゲン受容体β（ERβ）のシグナルがアレルギー性気道炎症に関与し、インターロイキン33（IL-33）や好酸球性炎症との関連が示唆されることを示した研究。</p>
+            <div class="linkbar"><a class="pubmed" href="https://pubmed.ncbi.nlm.nih.gov/30445053/" target="_blank" rel="noopener">PubMed PMID: 30445053</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner split reveal">
+        <h2>掲載時の注記</h2>
+        <div class="note">
+          本HTMLでは、Matsuzaka et al.はニバレノール（nivalenol）研究として整理しています。Ookawara et al.およびAihara et al.はPubMed上のDOI検索リンクを付与しています。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="section-inner">
+      <p>知られざる毒の世界：カビ毒等環境汚染物質と免疫の不思議な関係</p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
